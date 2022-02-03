@@ -1,14 +1,12 @@
 import 'reflect-metadata';
-//import '@shared/typeorm';
-import { createConnection } from 'typeorm';
-createConnection();
 import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
 import AppError from './errors/AppError';
+import '@shared/typeorm';
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 app.use(routes);
@@ -25,6 +23,9 @@ app.use(
                 message: error.message,
             });
         }
+
+        console.log(error);
+
         return response.status(500).json({
             status: 'error',
             message: 'Internal server error',
