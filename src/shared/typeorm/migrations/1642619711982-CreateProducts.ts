@@ -1,4 +1,4 @@
-import { networkInterfaces } from 'os';
+//import { networkInterfaces } from 'os';
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateProducts1642619711982 implements MigrationInterface {
